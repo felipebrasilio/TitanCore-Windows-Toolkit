@@ -1,91 +1,76 @@
-🚀 Automatizando a Manutenção de Servidores Windows com Ansible
+# 🛡️ Titan Core V12 - Enterprise Edition (God Mode)
 
-Manter servidores Windows performáticos e livres de problemas exige uma rotina eficiente de manutenção. 
-Para facilitar esse processo, desenvolvi um playbook Ansible que automatiza tarefas essenciais de limpeza, otimização e verificação do sistema.
-Com essa automação, seus servidores estarão sempre otimizados, seguros e funcionando sem interrupções!
+![Versão](https://img.shields.io/badge/version-12.0.0-blue.svg)
+![Plataforma](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
+![Linguagem](https://img.shields.io/badge/language-Batch%20%2F%20PowerShell-blue.svg)
+![Licença](https://img.shields.io/badge/license-MIT-green.svg)
 
-🚀 Benefícios da Automação
+**Titan Core V12** é uma plataforma híbrida de remediação, telemetria e auditoria forense para Endpoints Windows. Desenvolvido para transformar a manutenção reativa em gerenciamento proativo (RMM Local), o script combina a simplicidade de execução do Batch com o poder de processamento do PowerShell moderno.
 
-✔ Redução do trabalho manual: Sem necessidade de intervenção constante.
+---
 
-✔ Maior estabilidade e performance: Evita lentidões e melhora a segurança.
+## 🚀 Diferenciais da Arquitetura
 
-✔ Correção automática de erros do sistema: Identifica e repara problemas antes que causem falhas.
+- **Wrapper Híbrido:** Execução simplificada via arquivo `.bat` que invoca automaticamente o motor PowerShell interno.
+- **Auto-Elevação (UAC Bypass):** Solicitação automática de privilégios administrativos para operações críticas.
+- **Foco em DevSecOps:** Módulos específicos para identificação de processos "zumbis" em ambientes de desenvolvimento (FastAPI, Uvicorn, Flask).
+- **Log de Auditoria:** Registro detalhado de todas as operações em `%ProgramData%\TitanCore_Logs`.
 
-✔ Otimização de disco e memória: Melhora o desempenho geral do servidor.
+---
 
-✔ Atualizações do Windows sem erros: Remove pacotes corrompidos e garante que o update funcione corretamente.
+## 🛠️ Módulos Integrados
 
+### 🩺 Remediação de Integridade
+Utiliza os motores **SFC (System File Checker)** e **DISM (Deployment Image Servicing and Management)** para reparar corrupções na imagem do sistema operacional e arquivos de sistema.
 
-Com essa automação, seus servidores Windows estarão sempre otimizados e livres de problemas! 🔥
+### 🧹 Purga de Sistema (Deep Clean)
+Limpeza profunda de caches do Windows Update (SoftwareDistribution), arquivos temporários de usuário e sistema, e prefetch, visando ganho imediato de performance.
 
+### 🌐 Reset Absoluto de Rede
+Restauração completa da stack TCP/IP, liberação/renovação de IP, flush de DNS e reinicialização forçada de adaptadores de rede físicos e virtuais.
 
+### 🧟 Caçador de Processos (Dev Mode)
+Ferramenta de auditoria TCP que identifica qual PID está ocupando portas específicas (ex: 8000, 5000). Essencial para desenvolvedores que lidam com travamentos de servidores locais.
 
-O que essa automação faz?
+### 🔬 Dashboard Forense
+Gera um relatório **HTML interativo** na área de trabalho com telemetria vital:
+- Saúde de hardware e SO.
+- Estatísticas de Memória RAM.
+- Detalhes de armazenamento e Hostname.
 
-✅ Limpa arquivos temporários e cache do sistema (Temp, Prefetch, %TEMP%)
+### 🤖 Automação Zero-Touch
+Injeção inteligente no **Agendador de Tarefas do Windows** para executar rotinas de manutenção silenciosas sob a conta `SYSTEM` todos os domingos às 03:00 AM.
 
-✅ Otimiza o Windows Update (remove arquivos corrompidos do SoftwareDistribution)
+---
 
-✅ Remove logs antigos e logs de eventos do Windows
+## 📥 Como Utilizar
 
-✅ Verifica e repara o disco (chkdsk)
+1. Faça o download do arquivo `TitanCore.bat`.
+2. Execute como **Administrador**.
+3. Escolha a opção desejada no menu interativo.
 
-✅ Verifica e corrige arquivos do sistema (sfc e DISM)
+> **Nota:** A opção `[99] Rotina Técnica Completa` executa o ciclo completo de manutenção recomendado para auditorias mensais.
 
-✅ Otimiza e desfragmenta o disco (Optimize-Volume)
+---
 
-✅ Libera memória RAM (limpeza de cache do sistema)
+## 📂 Estrutura de Logs
 
-✅ Limpa cache DNS para resolver problemas de rede
+O sistema mantém um rastro de auditoria para conformidade (compliance):
+- **Caminho:** `C:\ProgramData\TitanCore_Logs\`
+- **Arquivo:** `execucao.log`
 
-✅ Remove pacotes obsoletos do Windows Update
+---
 
-✅ Reinicia automaticamente o servidor, se necessário (opcional)
+## ⚠️ Isenção de Responsabilidade (Disclaimer)
 
-====================================================================
+Este script foi desenvolvido para uso profissional por administradores de sistemas e técnicos de TI. Embora tenha sido testado, o autor não se responsabiliza por quaisquer danos resultantes do uso indevido. Sempre teste em ambientes controlados antes do deploy em larga escala.
 
-🚀 Automating Windows Server Maintenance with Ansible
+---
 
-Keeping Windows servers performing and problem-free requires an efficient maintenance routine. 
-To make this process easier, I've developed an Ansible playbook that automates essential system cleaning, optimization and verification tasks.
-With this automation, your servers will always be optimized, secure and running without interruption!
+## 🤝 Contribuições
 
-🚀 Benefits of automation
+Sinta-se à vontade para abrir *Issues* ou enviar *Pull Requests*. O Titan Core é um projeto vivo e melhorias na lógica de detecção e novos módulos forenses são sempre bem-vindos!
 
-✔ Reduced manual work: No need for constant intervention.
+---
 
-✔ Greater stability and performance: Prevents slowdowns and improves safety.
-
-✔ Automatic correction of system errors: Identifies and repairs problems before they cause failures.
-
-✔ Disk and memory optimization: Improves overall server performance.
-
-✔ Error-free Windows updates: Removes corrupted packages and ensures that the update works correctly.
-
-
-With this automation, your Windows servers will always be optimized and problem-free! 🔥
-
-
-
-What does this automation do?
-
-✅ Clears temporary files and system cache (Temp, Prefetch, %TEMP%)
-
-✅ Optimizes Windows Update (removes corrupted SoftwareDistribution files)
-
-✅ Removes old logs and Windows event logs
-
-✅ Checks and repairs the disk (chkdsk)
-
-✅ Checks and corrects system files (sfc and DISM)
-
-✅ Optimizes and defragments the disk (Optimize-Volume)
-
-✅ Frees up RAM memory (system cache cleaning)
-
-✅ Clears DNS cache to resolve network problems
-
-✅ Removes obsolete Windows packages 
-
-
+**Desenvolvido por Felipe Brasilio** *Transformando o suporte técnico em engenharia de confiabilidade.*
